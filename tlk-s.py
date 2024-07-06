@@ -1,19 +1,24 @@
 import pyttsx3
 import streamlit as st
+from gtts import gTTS
+import os
+from playsound import playsound
 
 # Function to initialize and use text-to-speech engine
 def speak_text(audio):
-    st.sidebar.write("speaking")
-    engine = pyttsx3.init()
-    engine.say(audio)
-    engine.runAndWait()
-    engine.stop()
+    try:
+        tts = gTTS(text=audio, lang='en')
+        tts.save("audio.mp3")
+        playsound("audio.mp3")
+        os.remove("audio.mp3")
+    except Exception as e:
+        st.sidebar.error(f"Failed to play text-to-speech: {e}")
 
 # Streamlit app
 st.title("Text Input Talk")
 
 # Text input for user name
-talk1 = st.text_input("Enter your text:")
+talk1 = st.text_input("Enter your name:")
 
 # Button to trigger speaking the text input
 if st.button("Speak!"):

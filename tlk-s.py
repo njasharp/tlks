@@ -13,6 +13,8 @@ def generate_audio(audio_text, filename="audio.mp3"):
         return None
 
 # Streamlit app
+st.image(„facew.png", width=320) 
+
 st.title("Text Input Talk")
 
 # Text input for user name

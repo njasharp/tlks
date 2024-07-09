@@ -16,7 +16,7 @@ def generate_audio(audio_text, filename="audio.mp3"):
 st.image("facew.PNG", width=220) 
 
 st.title("Text Input Talk")
-
+st.image("kit.gif", width=150)
 # Text input for user name
 talk1 = st.text_input("Enter your name:")
 
